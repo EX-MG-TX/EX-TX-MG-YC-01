@@ -431,13 +431,14 @@ class BiliApi(object):
             }
         return self._session.post(url, post_data).json()
 
-    def followedModify(self, followid: 'up的uid', act=1, re_src=11):
+    def followedModify(self, followid: 'up的uid', act=1, re_src=151):
         "改变关注状态(增加、删除关注的up)"
-        url = "https://api.bilibili.com/x/relation/modify"
+        url = "https://api.bilibili.com/x/relation/batch/modify"
         post_data = {
-            "fid": followid,
+            "fids": followid,
             "act": act,
             "re_src": re_src,
+            "jsonp":"jsonp",
             "csrf": self._bili_jct
             }
         return self._session.post(url, post_data).json()
