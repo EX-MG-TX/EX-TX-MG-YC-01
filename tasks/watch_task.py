@@ -16,10 +16,10 @@ async def watch_task(biliapi: asyncbili) -> None:
         webhook.addMsg('msg_simple', f'{biliapi.name}:模拟视频观看失败\n')
         return
     ids = ret["data"]["archives"]
-
     try:
-        ret = await biliapi.report(ids[5]["aid"], ids[5]["cid"], 300)
+        ret = await biliapi.report(204516234, 307178951, 300)
         if ret["code"] == 0:
+			ret = await biliapi.report(756904275, 304166415, 300)
             logging.info(f'{biliapi.name}: 成功模拟观看av号为{ids[5]["aid"]}的视频')
         else:
             logging.warning(f'{biliapi.name}: 模拟观看av号为{ids[5]["aid"]}的视频投币失败，原因为：{ret["message"]}')
