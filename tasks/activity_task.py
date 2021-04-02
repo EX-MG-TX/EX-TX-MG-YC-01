@@ -50,6 +50,6 @@ async def activity_task(biliapi: asyncbili,
                         logging.info(f'{biliapi.name}: 参与({x["name"]})活动第({ii + 1}/{times})次，结果为({ret["data"][0]["gift_name"]})')
                         if not ret["data"][0]["gift_name"] == '未中奖0':
                             webhook.addMsg('msg_simple', f'{biliapi.name}:参与({x["name"]})活动获得({ret["data"][0]["gift_name"]})\n')
-                    await asyncio.sleep(6) #抽奖延时
+                    await asyncio.sleep(30) #抽奖延时
             except Exception as e:
                 logging.warning(f'{biliapi.name}: 参与({x["name"]})活动异常，原因为({str(e)})')
